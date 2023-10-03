@@ -1,0 +1,22 @@
+{% extends 'termproject/base.html' %}
+
+<!-- header section end -->
+{% block content %}
+{%load static%}
+<br></br>
+<br>
+<p style="font-size:30px;  margin-left:350px; padding-top:50px;color:black">How much deep knowledge of programming you have?</p>
+<p style="font-size:20px;  margin-left:500px; margin-top:20px;color:black">Check that with us: By completing this quiz</p>
+<li><a onclick="subscribe()"><img src="{%static 'termproject/images/img.png'%}" class="jumbotron my-auto contain h-10 w-30 d-flex justify-content-center" style="margin:500px"></a></li>
+ <p style="font-size:20px;  margin-left:500px; margin-top:20px;color:black">Complete registration first for taking quiz:</p>
+<div class="row align-items-center">
+
+    <a href="{%url 'register' %}"><input class="btn btn-info btn-lg" type="submit" value="Registration" style="margin-left:650px"/></a>
+      </div>
+<script>
+    function subscribe(){
+       alert("If you are newcomer complete registration first by clicking on Registration button otherwise do login to take quiz!!!");
+
+    }
+  </script>
+{%endblock content%}

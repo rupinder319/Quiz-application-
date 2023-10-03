@@ -1,0 +1,50 @@
+{% extends 'termproject/base.html' %}
+
+{% block content %}
+
+  <div class="card-body" >
+
+    <h3 style="font-size:25px; text-align:center">Quiz Results</h3>
+    <table border ="2" class="table" >
+        <thead style="font-size:17px; color:black">
+            <tr>
+                <td>User ID</td>
+                <td>User Name</td>
+                <td>
+                    Score
+                </td>
+
+            </tr>
+        </thead>
+        <tbody >
+            {% for l in allList %}
+            <tr style="font-size:15px; color:black">
+                <td>{{ l.question_id }}</td>
+                <td>{{ l.user_name }}</td>
+                <td>
+                    {{ l.score }}
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><br><br>
+      <h4 style="font-size:25px; text-align:center">Highest Lowest and Average Grade</h4>
+    <table border ="2" class="table"><!-- Average Lowest Highest Table -->
+        <thead style="font-size:17px; color:black">
+            <tr>
+                <td>Highest</td>
+                <td>Average</td>
+                <td>Lowest</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="font-size:15px; color:black">
+                <td>{{highest }}</td>
+                <td>{{ average }}</td>
+                <td>{{ lowest }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

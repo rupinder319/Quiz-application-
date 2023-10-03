@@ -1,0 +1,35 @@
+{% extends 'termproject/base.html' %}
+{% block content %}
+<body style="background-color:white">
+
+<div class="jumbotron my-auto contain h-50 w-50 d-flex justify-content-center" style="background-color:#d6ccbc; margin:400px">
+<!-- header section end -->
+
+<div class="main">
+  <h3>Registration form</h3>
+<hr />
+
+<form action="" method="post">
+  {% csrf_token %}
+    {% for field in form %}
+  <div>
+    <p style="color:black">
+      {{ field.label }}: <br />
+      {{ field }}
+    </p>
+
+    {% for error in field.errors %}
+    <medium style="color: red">{{ error }}</medium>
+    {% endfor %}
+  </div>
+  {% endfor %} <!--It renders data in <p> tags -->
+
+  <div class="row align-items-center">
+        <input class="btn btn-info btn-md" type="submit" value="Register" style="margin-left:50px"/>
+      </div>
+     <p>Do you already have account?<a href="{%url 'login' %}">Login</a></p>
+</form>
+</div>
+</div>
+</body>
+{% endblock content%}

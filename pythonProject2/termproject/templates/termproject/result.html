@@ -1,0 +1,43 @@
+{% extends 'termproject/base.html' %}
+
+<!-- header section end -->
+{% block content %}
+<br><br>
+  <div class="jumbotron my-auto contain h-50 w-50 d-flex justify-content-center" style="background-color:#F5CBA7; margin:400px;">
+   <div class="main">
+  <h3 style="color:black; font-size:20px">Result Page</h3>
+<hr />
+ {% for message in messages %}
+    <div class="alert alert-success">
+           <medium style="color:#351c75">{{ message }}</medium>
+    </div>
+ {% endfor %}
+<div class="card-body">
+                <h5 class="card-title" style="color:black; font-size:17px">Score: {{score}}</h5>
+
+                <p class="card-text" style="color:black; font-size:17px">Percentage: {{percent}}%</p>
+
+                <p class="card-text" style="color:black ; font-size:17px">Correct answers: {{correct}}</p>
+                <p class="card-text" style="color:black ; font-size:17px">Incorrect answers: {{wrong}}</p>
+                <p class="card-text" style="color:black; font-size:17px">Total questions: {{total}}</p>
+                 {%if score < 3 %}
+
+                   <p>Retake quiz:     <a href="{%url 'quiz' %}">Quiz Again</a></p>
+                 {%endif%}
+            </div>
+                <form action="save/" method="POST">
+                  {% csrf_token %}
+                  {{form}}
+                  <input type="hidden" name="question_id" id="question_id" value="{{request.user.id}}">
+                  <input type="hidden" name="user_name" id="user_name" value="{{request.user.username}}">
+                  <input type="hidden" name="score" id="score" value={{score}}>
+
+                  <input type="submit" name="Save" value="Save">
+             </form>
+</div>
+
+
+</div>
+
+
+{% endblock content%}

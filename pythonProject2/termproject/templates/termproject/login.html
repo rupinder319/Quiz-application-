@@ -1,0 +1,36 @@
+{% extends 'termproject/base.html' %}
+
+<!-- header section end -->
+{% block content %}
+<br><br>
+  <div class="jumbotron my-auto contain h-50 w-50 d-flex justify-content-center" style="background-color:#F5CBA7; margin:400px;">
+   <div class="main">
+  <h3>Login form</h3>
+<hr />
+      {% for message in messages %}
+    <div class="alert alert-success">
+           <medium style="color:#351c75">{{ message }}</medium>
+    </div>
+
+{% endfor %}
+    <form action="" method="post">
+      <div class="row align-items-center">
+        <label for="username" style="color:black">User Name:</label><br>
+        <input class="form-control input-lg" type="text" id="username" name="username" placeholder = "username" required>
+      </div>
+
+      <div class="row align-items-center">
+        <label for="password" style="color:black">Password:</label><br>
+        <input class="form-control input-lg" type="password" id="password" name="password" placeholder = "password" required>
+      </div><br>
+
+      <div class="row align-items-center">
+        <input class="btn btn-info btn-md" type="submit" value="Login"/>
+      </div>
+      <p>Create new Account?<a href="{%url 'register' %}">Register</a></p>
+    </form>
+
+  </div>
+</div>
+
+{% endblock content%}
